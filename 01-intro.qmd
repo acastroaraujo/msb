@@ -1,0 +1,99 @@
+# Introduction
+
+## Doing Violence To Reality
+
+**Model:** *an abstract or physical structure that can potentially represent a real-world phenomenon* [@smaldino2023, pp. 4].
+
+**Formal Models:** mathematical or computational specifications of a system.
+
+> Formal models are special because they contain nothing more or less than what we put into them. Sometimes, critics of formal modeling say, "Well, you baked your result into the model, so it had to happen." They're not wrong. In fact, this is literally true of every formal model, because the model analysis is merely a series of computations based on assumptions specified by the modeler. To put it another way, a formal model is a logical engine that turns assumptions into conclusions.
+>
+> @smaldino2023 [pp. 6]
+
+<aside>
+
+*"prostheses for the imagination"*
+
+</aside>
+
+**Decomposition:** We can usefully think about the design of agent-based models in terms of systems and the functional arrangement of their component parts.
+
+> What are the parts of the system we are interested in? What are their properties? What are the relationships between the parts and their properties? How do those properties and relationships change? Decomposition consists of usable answers to these questions.
+>
+> @smaldino2023 [pp. 9]
+
+We can *always* think of alternative decompositions for systems that exhibit the same (or similar) behavior. More important is our research question: *it is the question that determines the relevant parts of the system.*
+
+**Hypotheses:**
+
+> A hypothesis is a prediction that if a particular set of assumptions are met, a particular set of consequences will follow. In practice, this is a prediction that either (1) the parts of a system are organized in a particular way---in other words, that a particular decomposition carries explanatory power for some observed phenomena---or that (2) *because* the parts of a system are organized in a particular way, certain phenomena and not others will occur. Good hypotheses allow us to exclude and distinguish between competing theories.
+>
+> @smaldino2023 [pp. 10]
+
+**Two Kinds of Models**
+
+@smaldino2023 is careful to distinguish between **analytical models** and **agent-based models**. The first involve mathematical equations that specify the key relationships between the parts of a system (e.g., using differential equations); they are tractable and somewhat elegant, but they are limited primarily in their ability to deal with heterogeneity. ***Agent-based models** (ABMs) are a particular class of computational models in which individual agents are simulated as explicit computational entities.* These two approaches are complementary.
+
+## NetLogo
+
+**Object-Oriented Programming**
+
+NetLogo fully embraces [*object-oriented programming*](https://adv-r.hadley.nz/oo.html) (OOP)*.* There are at least two major forms of OOP: encapsulated OO systems (standard in Python and implemented in the [R6](https://adv-r.hadley.nz/r6.html) package) and functional OO systems (standard in R's [S3](https://adv-r.hadley.nz/s3.html) and the newer [S7](https://rconsortium.github.io/OOP-WG/articles/S7.html)). Both forms of OO system allow users to define an arbitrary number of *object classes*, each of which with its own set of properties and associated functions (or "procedures" in NetLogo).
+
+> -   In **encapsulated** OOP, methods belong to objects or classes, and method calls typically look like `object.method(arg1, arg2)`. This is called encapsulated because the object encapsulates both data (with fields) and behavior (with methods), and is the paradigm found in most popular languages.
+>
+> -   In **functional** OOP, methods belong to **generic** functions, and method calls look like ordinary function calls: `generic(object, arg2, arg3)`. This is called functional because from the outside it looks like a regular function call, and internally the components are also functions.
+>
+> @wickham2019
+
+*Patches, Turtles, Links*
+
+NetLogo has three important built-in classes of agents. **Patches** refers a set of discrete square cells laid out in a two-dimensional grid. Each patch has a fixed and unique location. **Turtles** are agents endowed with spatial coordinates and a directional heading. They have the ability to move, die, reproduce, and interact with other turtles. **Links** allows NetLogo to incorporate network models.
+
+**Models**
+
+The way to setup a new NetLogo model is to create a series of buttons and sliders which will then likely be stored as *global variables.* Most models contain at least two buttons: `setup` and `go`. The `setup` button simply sets (or resets) the initial conditions---i.e., parameter values---for the model to run. NetLogo has a bunch of built-in values and functions called [primitives](https://ccl.northwestern.edu/netlogo/bind/article/first-11-netlogo-primitives-to-learn.html) (e.g., `to`, `end`, `ask`).
+
+Any model will usually involve a **procedure** that looks something like this:
+
+```         
+to setup
+  clear-all        ;;clear/reset all variables
+  create-turtles num-particles [ 
+    setxy random-xcor random-ycor
+    ;;give them a random heading (this is default)
+    set heading random 360
+  ]
+  set collisions 0 ;;initialize collisions at zero (global variable)
+  reset-ticks      ;;set the timesteps to zero
+end
+```
+
+The model dynamics are specified in the `go` procedure. This procedure will usually contain instructions for each agent to follow, which we include by using the `ask` primitive. For example, we use `ask` to make turtles change the way they look, move around, interact with each other, remember past events, etc.
+
+For example:
+
+```         
+to go
+  ask turtles [
+    move          ;; these are custom user-defined
+    bounce-turtle ;; procedures
+  ]
+  tick
+end
+```
+
+Here, the keyword `turtles` generates a randomized list of all the agents (or agentset) at any given time-step.
+
+@smaldino2023 argues that it's best to describe models in terms of the following:
+
+1.  **Parts and Properties.** What is being represented? What are the agents like (e.g., patches, turtles, links)? What properties do they have? What behaviors do they exhibit? How do they interact with their environment (which includes *other* agents)? How are those interactions structured?
+2.  **Initialization.** What's going on when the simulation begins? How many agents are there and what are their starting properties? Answering these questions is important because many dynamics are sensitive to initial conditions.
+3.  **Dynamics.** After establishing the parts of the model and their initial conditions, we need to establish how they change. How does the state of the model system update from one moment to the next? What happens during each time step? How are the agents *scheduled* to behave? (NetLogo randomizes the order in which agents are scheduled by default). When do choose to end the simulation (i.e., stopping conditions)?
+4.  **Outcomes.** How are we defining the outcome measures? "Sometimes this is as easy as counting the proportion of agents in the population exhibiting some trait. Other times more computation will be necessary, as when we calculate the structural properties of an evolving network" [@smaldino2023, pp. 42].
+
+**Running Experiments**
+
+BehaviorSpace...
+
+## Schelling Segregation

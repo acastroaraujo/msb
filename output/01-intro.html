@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Modeling Social Behavior - 1&nbsp; Introduction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./02-schelling.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Modeling Social Behavior</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-schelling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Schelling</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./00-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercises</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">NetLogo</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#doing-violence-to-reality" id="toc-doing-violence-to-reality" class="nav-link active" data-scroll-target="#doing-violence-to-reality"><span class="header-section-number">1.1</span> Doing Violence To Reality</a></li>
+  <li><a href="#netlogo" id="toc-netlogo" class="nav-link" data-scroll-target="#netlogo"><span class="header-section-number">1.2</span> NetLogo</a></li>
+  <li><a href="#schelling-segregation" id="toc-schelling-segregation" class="nav-link" data-scroll-target="#schelling-segregation"><span class="header-section-number">1.3</span> Schelling Segregation</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="doing-violence-to-reality" class="level2 page-columns page-full" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="doing-violence-to-reality"><span class="header-section-number">1.1</span> Doing Violence To Reality</h2>
+<p><strong>Model:</strong> <em>an abstract or physical structure that can potentially represent a real-world phenomenon</em> <span class="citation" data-cites="smaldino2023">(<a href="references.html#ref-smaldino2023" role="doc-biblioref">Smaldino 2023, 4</a>)</span>.</p>
+<p><strong>Formal Models:</strong> mathematical or computational specifications of a system.</p>
+<blockquote class="blockquote">
+<p>Formal models are special because they contain nothing more or less than what we put into them. Sometimes, critics of formal modeling say, “Well, you baked your result into the model, so it had to happen.” They’re not wrong. In fact, this is literally true of every formal model, because the model analysis is merely a series of computations based on assumptions specified by the modeler. To put it another way, a formal model is a logical engine that turns assumptions into conclusions.</p>
+<p><span class="citation" data-cites="smaldino2023">Smaldino (<a href="references.html#ref-smaldino2023" role="doc-biblioref">2023, 6</a>)</span></p>
+</blockquote>
+<aside>
+<p><em>“prostheses for the imagination”</em></p>
+</aside>
+<p><strong>Decomposition:</strong> We can usefully think about the design of agent-based models in terms of systems and the functional arrangement of their component parts.</p>
+<blockquote class="blockquote">
+<p>What are the parts of the system we are interested in? What are their properties? What are the relationships between the parts and their properties? How do those properties and relationships change? Decomposition consists of usable answers to these questions.</p>
+<p><span class="citation" data-cites="smaldino2023">Smaldino (<a href="references.html#ref-smaldino2023" role="doc-biblioref">2023, 9</a>)</span></p>
+</blockquote>
+<p>We can <em>always</em> think of alternative decompositions for systems that exhibit the same (or similar) behavior. More important is our research question: <em>it is the question that determines the relevant parts of the system.</em></p>
+<p><strong>Hypotheses:</strong></p>
+<blockquote class="blockquote">
+<p>A hypothesis is a prediction that if a particular set of assumptions are met, a particular set of consequences will follow. In practice, this is a prediction that either (1) the parts of a system are organized in a particular way—in other words, that a particular decomposition carries explanatory power for some observed phenomena—or that (2) <em>because</em> the parts of a system are organized in a particular way, certain phenomena and not others will occur. Good hypotheses allow us to exclude and distinguish between competing theories.</p>
+<p><span class="citation" data-cites="smaldino2023">Smaldino (<a href="references.html#ref-smaldino2023" role="doc-biblioref">2023, 10</a>)</span></p>
+</blockquote>
+<p><strong>Two Kinds of Models</strong></p>
+<p><span class="citation" data-cites="smaldino2023">Smaldino (<a href="references.html#ref-smaldino2023" role="doc-biblioref">2023</a>)</span> is careful to distinguish between <strong>analytical models</strong> and <strong>agent-based models</strong>. The first involve mathematical equations that specify the key relationships between the parts of a system (e.g., using differential equations); they are tractable and somewhat elegant, but they are limited primarily in their ability to deal with heterogeneity. <em><strong>Agent-based models</strong> (ABMs) are a particular class of computational models in which individual agents are simulated as explicit computational entities.</em> These two approaches are complementary.</p>
+</section>
+<section id="netlogo" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="netlogo"><span class="header-section-number">1.2</span> NetLogo</h2>
+<p><strong>Object-Oriented Programming</strong></p>
+<p>NetLogo fully embraces <a href="https://adv-r.hadley.nz/oo.html"><em>object-oriented programming</em></a> (OOP)<em>.</em> There are at least two major forms of OOP: encapsulated OO systems (standard in Python and implemented in the <a href="https://adv-r.hadley.nz/r6.html">R6</a> package) and functional OO systems (standard in R’s <a href="https://adv-r.hadley.nz/s3.html">S3</a> and the newer <a href="https://rconsortium.github.io/OOP-WG/articles/S7.html">S7</a>). Both forms of OO system allow users to define an arbitrary number of <em>object classes</em>, each of which with its own set of properties and associated functions (or “procedures” in NetLogo).</p>
+<blockquote class="blockquote">
+<ul>
+<li><p>In <strong>encapsulated</strong> OOP, methods belong to objects or classes, and method calls typically look like <code>object.method(arg1, arg2)</code>. This is called encapsulated because the object encapsulates both data (with fields) and behavior (with methods), and is the paradigm found in most popular languages.</p></li>
+<li><p>In <strong>functional</strong> OOP, methods belong to <strong>generic</strong> functions, and method calls look like ordinary function calls: <code>generic(object, arg2, arg3)</code>. This is called functional because from the outside it looks like a regular function call, and internally the components are also functions.</p></li>
+</ul>
+<p><span class="citation" data-cites="wickham2019">Wickham (<a href="references.html#ref-wickham2019" role="doc-biblioref">2019</a>)</span></p>
+</blockquote>
+<p><em>Patches, Turtles, Links</em></p>
+<p>NetLogo has three important built-in classes of agents. <strong>Patches</strong> refers a set of discrete square cells laid out in a two-dimensional grid. Each patch has a fixed and unique location. <strong>Turtles</strong> are agents endowed with spatial coordinates and a directional heading. They have the ability to move, die, reproduce, and interact with other turtles. <strong>Links</strong> allows NetLogo to incorporate network models.</p>
+<p><strong>Models</strong></p>
+<p>The way to setup a new NetLogo model is to create a series of buttons and sliders which will then likely be stored as <em>global variables.</em> Most models contain at least two buttons: <code>setup</code> and <code>go</code>. The <code>setup</code> button simply sets (or resets) the initial conditions—i.e., parameter values—for the model to run. NetLogo has a bunch of built-in values and functions called <a href="https://ccl.northwestern.edu/netlogo/bind/article/first-11-netlogo-primitives-to-learn.html">primitives</a> (e.g., <code>to</code>, <code>end</code>, <code>ask</code>).</p>
+<p>Any model will usually involve a <strong>procedure</strong> that looks something like this:</p>
+<pre><code>to setup
+  clear-all        ;;clear/reset all variables
+  create-turtles num-particles [ 
+    setxy random-xcor random-ycor
+    ;;give them a random heading (this is default)
+    set heading random 360
+  ]
+  set collisions 0 ;;initialize collisions at zero (global variable)
+  reset-ticks      ;;set the timesteps to zero
+end</code></pre>
+<p>The model dynamics are specified in the <code>go</code> procedure. This procedure will usually contain instructions for each agent to follow, which we include by using the <code>ask</code> primitive. For example, we use <code>ask</code> to make turtles change the way they look, move around, interact with each other, remember past events, etc.</p>
+<p>For example:</p>
+<pre><code>to go
+  ask turtles [
+    move          ;; these are custom user-defined
+    bounce-turtle ;; procedures
+  ]
+  tick
+end</code></pre>
+<p>Here, the keyword <code>turtles</code> generates a randomized list of all the agents (or agentset) at any given time-step.</p>
+<p><span class="citation" data-cites="smaldino2023">Smaldino (<a href="references.html#ref-smaldino2023" role="doc-biblioref">2023</a>)</span> argues that it’s best to describe models in terms of the following:</p>
+<ol type="1">
+<li><strong>Parts and Properties.</strong> What is being represented? What are the agents like (e.g., patches, turtles, links)? What properties do they have? What behaviors do they exhibit? How do they interact with their environment (which includes <em>other</em> agents)? How are those interactions structured?</li>
+<li><strong>Initialization.</strong> What’s going on when the simulation begins? How many agents are there and what are their starting properties? Answering these questions is important because many dynamics are sensitive to initial conditions.</li>
+<li><strong>Dynamics.</strong> After establishing the parts of the model and their initial conditions, we need to establish how they change. How does the state of the model system update from one moment to the next? What happens during each time step? How are the agents <em>scheduled</em> to behave? (NetLogo randomizes the order in which agents are scheduled by default). When do choose to end the simulation (i.e., stopping conditions)?</li>
+<li><strong>Outcomes.</strong> How are we defining the outcome measures? “Sometimes this is as easy as counting the proportion of agents in the population exhibiting some trait. Other times more computation will be necessary, as when we calculate the structural properties of an evolving network” <span class="citation" data-cites="smaldino2023">(<a href="references.html#ref-smaldino2023" role="doc-biblioref">Smaldino 2023, 42</a>)</span>.</li>
+</ol>
+<p><strong>Running Experiments</strong></p>
+<p>BehaviorSpace…</p>
+</section>
+<section id="schelling-segregation" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="schelling-segregation"><span class="header-section-number">1.3</span> Schelling Segregation</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-smaldino2023" class="csl-entry" role="listitem">
+Smaldino, Paul. 2023. <em>Modeling Social Behavior: Mathematical and Agent-Based Models of Social Dynamics and Cultural Evolution</em>. Princeton University Press.
+</div>
+<div id="ref-wickham2019" class="csl-entry" role="listitem">
+Wickham, Hadley. 2019. <em>Advanced R, Second Edition</em>. CRC Press.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./02-schelling.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Schelling</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

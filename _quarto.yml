@@ -1,0 +1,28 @@
+project:
+  type: book
+  output-dir: output
+
+book:
+  title: "Modeling Social Behavior"
+  author: "andrés castro araújo"
+  date: last-modified
+  chapters:
+    - index.qmd
+    - 01-intro.qmd
+    - 02-schelling.qmd
+    - part: 00-exercises.qmd
+      chapters: 
+        - 01-exercises.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    mainfont: Optima
+    monofont: Fira Code
+    fontsize: 1em
+    code-fold: true
+
+

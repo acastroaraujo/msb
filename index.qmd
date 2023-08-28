@@ -1,0 +1,9 @@
+# Preface {.unnumbered}
+
+This notebook contains my notes to *Modeling Social Behavior: Mathematical and Agent-Based Models of Social Dynamics and Cultural Evolution* [@smaldino2023].
+
+Most NetLogo[^index-1] code used throughout is contained in this repository:
+
+[^index-1]: [Download](http://ccl.northwestern.edu/netlogo/). [Resources](https://ccl.northwestern.edu/netlogo/resources.shtml).
+
+<https://github.com/psmaldino/modsoc>
